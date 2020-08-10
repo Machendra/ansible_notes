@@ -1,0 +1,8 @@
+---
+- name: This play book is for creating user 
+  hosts: all
+  become: yes
+  tasks:
+   - name: Craeting user 
+     user: 
+      name: surya

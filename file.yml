@@ -1,0 +1,28 @@
+#---
+#- name: playbook for craeting directories and files
+# hosts: all
+# become: true
+# tasks:
+# - name: Craeting Demofile 
+#   file:
+#    path: /home/ansadmin/demofile
+#    state: touch
+# - name: creating directory 
+#   file:    
+#    path: /home/ansadmin/demodir
+#    state: directory
+
+
+---
+- name: playbook for craeting directories and files
+  hosts: all
+  become: true
+  tasks:
+  - name: Craeting Demofile 
+    file:
+     path: /home/ansadmin/demofile
+     state: absent 
+  - name: creating directory 
+    file:    
+     path: /home/ansadmin/demodir
+     state: absent

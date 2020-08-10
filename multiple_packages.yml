@@ -1,0 +1,10 @@
+---
+- name: This playbock install packages in webservers
+  hosts: webservers
+  become: True
+  tasks:
+   - name: instaling multiple packages
+     yum: 
+       name: ["git","docker","tree"]
+       state: present 
+      

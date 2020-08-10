@@ -1,0 +1,7 @@
+---
+- name: Play book for installing webserver in all the nodes 
+  hosts: webservers 
+  become: true
+  gather_facts: yes
+  roles: 
+   - role

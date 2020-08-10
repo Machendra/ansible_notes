@@ -1,0 +1,12 @@
+---
+- name: Playbook for vault
+  hosts: all
+  become: true
+  vars_files:
+   - git_pswd.yml
+  tasks:
+   - name: clone a repo
+     git: 
+       repo: https://Machendra:{{ password }}@github.com/Machendra/vault.git
+       dest: /opt/test-vault
+

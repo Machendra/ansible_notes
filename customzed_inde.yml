@@ -1,0 +1,34 @@
+---
+- name: Play book for installing webserver in all the nodes 
+  hosts: all
+  become: true
+  gather_facts: yes
+  tasks:
+   - name: installing httpd in redhat os
+     yum:
+      name: httpd
+      state: present
+     when: ansible_os_family == "RedHat"
+   - name: starting httpd
+     service:
+      name: httpd
+      state: started
+     when: ansible_os_family == "RedHat"  
+
+   - name: installing httpd in Debian os
+     apt:
+      name: apache2
+      state: present
+     when: ansible_os_family == "Debian"
+   - name: starting apache2 in Debian
+     service:
+      name: apache2
+      state: started
+     when: ansible_os_family == "Debian"
+
+   - name: copying index page in to host machines
+     copy:
+      src: /opt/ansible/index.html
+      dest: /var/www/html
+      mode: 0666
+

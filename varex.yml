@@ -1,0 +1,10 @@
+---
+- name: This play book is for creating user 
+  hosts: all
+  become: yes
+  vars:
+   user: machendra
+  tasks:
+   - name: Creating user {{ user }} 
+     user: 
+      name: "{{ user }}"

@@ -1,0 +1,10 @@
+---
+- name: This playbock install packages in webservers
+  hosts: webservers
+  become: True
+  tasks:
+   - name: instaling Git 
+     yum: 
+       name: git
+       state: absent 
+      

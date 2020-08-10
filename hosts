@@ -1,0 +1,11 @@
+[webservers]
+#192.168.0.254
+#192.168.0.65
+awsnode
+rhel
+[appserver]
+#192.168.0.65
+rhel
+[dbserver]
+#192.168.0.22
+ubuntu

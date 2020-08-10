@@ -1,0 +1,23 @@
+---
+# tasks file for role-apache
+- name: installing httpd in redhat os
+  yum:
+   name: httpd
+   state: present
+  when: ansible_os_family == "RedHat"
+  notify: staring apache
+
+- name: copying index page in to host machines
+  copy:
+   src: /opt/ansible/index.html
+   dest: /var/www/html
+   mode: 0666
+ 
+- name: changing default port
+  lineinfile:
+   path: /etc/httpd/conf/httpd.conf
+   regexp: '^Listen '
+   insertafter: '^#Listen '
+   line: Listen {{ port }}
+  when: ansible_os_family == "RedHat"
+  notify: restart apache
